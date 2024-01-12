@@ -9,6 +9,7 @@ const URL = process.env.MONGO_URI;
 const userRouter = require("./routes/usr-router");
 const postRouter = require("./routes/post-router");
 const WebSocket = require("ws");
+
 mongoose
   .connect(URL, {
     useNewUrlParser: true,

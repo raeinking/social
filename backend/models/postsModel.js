@@ -4,11 +4,11 @@ const postSchema = new mongoose.Schema(
   {
     userId: {
       type: String,
-      required: true,
+      // required: true,
     },
     postTitle: {
       type: String,
-      required: true,
+      // required: true,
     },
     video: {
       type: String,
