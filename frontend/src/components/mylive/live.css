@@ -1,0 +1,51 @@
+.livecontainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 20%;
+    height: 100vh;
+}
+.left {
+    width: 80%;
+}
+.left iframe {
+    width: 100%;
+    height: 100vh;
+    border-color: none;
+    overflow: hidden;
+
+}
+.right .comment{
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.inputcomment {
+    display: flex;
+}
+
+.inputcomment img{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.btnsendcomment {
+    padding: 10px 14px;
+    margin-bottom: 10px;
+}
+
+.livecomments {
+    border: solid 1px black  ;
+    padding: 8px 12px;
+    width: 100%;
+    height: 85vh;
+}
