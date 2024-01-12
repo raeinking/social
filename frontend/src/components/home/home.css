@@ -1,0 +1,11 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    max-width: 680px;
+    width: 100%;
+    background-color: red;
+}
