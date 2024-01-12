@@ -64,7 +64,7 @@ exports.Login = async (req, res) => {
     });
     return res
       .status(200)
-      .json({ email: user.email, userId: user._id, token: token });
+      .json({ email: user.email, userId: user._id, token: token , name: user.name });
   } catch (err) {
     console.log(err);
     return res.status(400).json({ message: err.message });

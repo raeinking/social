@@ -1,15 +1,22 @@
 import React, { useState } from "react"
 // import './login.css'
+import loadinggif from '../../images/loading.gif'
+import processgif from '../../images/checkprosees.gif'
+import { useHistory } from "react-router-dom/cjs/react-router-dom.min"
+
 const Login = () => {
   const [email, setemail] = useState('') 
   const [password, setpassword ] = useState('')
   const [loading, setloading] = useState(false)
+  const history = useHistory();
+
+  useState(false);
 
   const login = (e) => {
     e.preventDefault();
     setloading(true);
 
-    fetch('http://192.168.4.34:8040/auth/login', {
+    fetch('http://192.168.68.103:8060/auth/login', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
@@ -17,7 +24,6 @@ const Login = () => {
         body: JSON.stringify({
             email: email,
             password: password,
-            Authorization: 'TheReturnedToken',
         })
     })
     .then(response => {
@@ -27,11 +33,17 @@ const Login = () => {
         return response.json();
     })
     .then(data => {
-        console.log(data.user);
+      document.cookie = `token=${data.token}; `;
+      document.cookie = `name=${data.name}; `;
+      document.cookie = `userId=${data.userId}; `;
+      document.cookie = `email=${data.email}; `;
+      setTimeout(() => {
+        history.push('/');
+        window.location.reload(); 
+    }, 500);
     })
     .catch(error => {
         console.error('Login error:', error.message);
-        alert('user not foudnd')
       })
     .finally(() => {
         setloading(false);
@@ -40,6 +52,9 @@ const Login = () => {
 
   return (
     <>
+        {loading?<div className="loading">
+        <img src={loadinggif} alt="" srcset="" />
+    </div>: null}
       <div className="loginpage">
         <div className="blackcover">
           <form className="formlogin" action="" onSubmit={login}>

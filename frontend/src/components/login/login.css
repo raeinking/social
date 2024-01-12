@@ -5,6 +5,22 @@
     font-family: 'Roboto';
 
   }
+
+  .loading {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.283);
+  }
+  .loading img {
+    width: 300px;
+    image-rendering: auto;
+    z-index: 100;
+  }
   
 .loginpage { 
     width: 100%;

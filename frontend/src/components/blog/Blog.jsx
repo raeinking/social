@@ -1,6 +1,6 @@
 import React from 'react'
 import '../blog/blog.css'
-function Blog() {
+function Blog({name}) {
   return (
     <div className='blogcontainer'>
         <a href="">
