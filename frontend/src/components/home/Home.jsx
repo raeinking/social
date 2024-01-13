@@ -6,11 +6,11 @@ import { useHistory } from 'react-router-dom';
 function Home() {
     const history = useHistory();
 
-useEffect(() => {
-    if (!document.cookie.includes('name') || !document.cookie.includes('email') || !document.cookie.includes('userId') || !document.cookie.includes('token')) {
-        history.push('/login');
-    }
-}, [])
+    useEffect(() => {
+        if (!document.cookie.includes('name') || !document.cookie.includes('email') || !document.cookie.includes('userId') || !document.cookie.includes('token')) {
+            history.push('/login');
+        }
+    }, [])
 
 
 
@@ -19,10 +19,6 @@ useEffect(() => {
     <div className='container'>
         <div className="main-container">
             <Header /> 
-            <Blog />
-            <Blog />
-            <Blog />
-            <Blog />
             <Blog />
         </div>
     </div>
