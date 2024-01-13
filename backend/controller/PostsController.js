@@ -10,7 +10,7 @@ exports.PostVedio = async (req, res) => {
       thumbnail: thumbnail,
       userId: userId,
       video: video,
-      roo,
+      room,
     });
     post.save();
     res.send("post created successfully");

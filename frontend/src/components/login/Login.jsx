@@ -16,7 +16,7 @@ const Login = () => {
     e.preventDefault();
     setloading(true);
 
-    fetch('http://192.168.68.103:8060/auth/login', {
+    fetch('http://192.168.68.113:8060/auth/login', {
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
