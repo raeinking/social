@@ -15,19 +15,19 @@ const Login = () => {
   const login = (e) => {
     e.preventDefault();
     setloading(true);
-    fetch('http://localhost:8060/auth/login', {
-        method: 'POST',
-        headers: {
-            'Content-type': 'application/json',
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password,
-        })
+    fetch("http://localhost:8060/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
     })
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`HTTP error! Status: ${response.status}`);
+          throw new Error('sadf');
         }
         return response.json();
       })
@@ -85,4 +85,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login;

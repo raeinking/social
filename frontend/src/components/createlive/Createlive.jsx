@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory } from 'react-router-dom';
 
 function Createlive() {
+  const history = useHistory();
+
   const [title, setTitle] = useState("");
+  const [discription, setdiscription] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [video, setVideo] = useState("");
   const [loading, setLoading] = useState(false);
@@ -19,8 +23,6 @@ function Createlive() {
     formData.append("live", true);
     formData.append("room", Math.random().toString(36).substring(2, 15));
 
-    console.log(title, video);
-
     try {
       const response = await fetch("http://localhost:8060/post/create", {
         method: "POST",
@@ -28,7 +30,7 @@ function Createlive() {
       });
 
       if (!response.ok) {
-        throw new Error('eeror');
+        throw new Error('error');
       }
 
       const data = await response.json();
@@ -37,16 +39,18 @@ function Createlive() {
       console.error("Error creating post:", error.message);
     } finally {
       setLoading(false);
+      history.push('/');
     }
   };
-  const id = "65a1e4ad44248b2036513325"; // Replace with your dynamic ID
+
 
   return (
     <>
       <div className="loginpage">
         <div className="blackcover">
           <form className="formlogin" action="" onSubmit={createPost}>
-            <h1> Create Live </h1> <label> Title </label>{" "}
+            <h1> Create Live </h1> 
+            <label> Title </label>{" "}
             <input
               type="text"
               placeholder="Your Title..."

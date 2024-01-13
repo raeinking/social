@@ -28,8 +28,6 @@ function Blog({ name }) {
   const getResult = () => {
     posts.forEach((post) => {
       console.log(post.video);
-      // Extract filename from the file path
-      // const filename = path.basename(post.video);
       const filename = post.video.split("/").pop();
       setFileName(filename);
     });
@@ -39,8 +37,6 @@ function Blog({ name }) {
     <div className="blogcontainer">
       {" "}
       {posts.map((post) => (
-        //// const filename = path.basename(post.video);
-
         <div className="blog" key={post._id}>
           <a href={`/live/${post.room}`}>
 

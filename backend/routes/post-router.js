@@ -15,9 +15,7 @@ const multerStorage = multer.diskStorage({
   },
   filename: (req, file, cb) => {
     const ext = file.mimetype.split("/")[1];
-    const uniqueSuffix = Date.now().Math.round(Math.random() * 1e9)
-    const filename = file.fieldname.uniqueSuffix.ext;
-    cb(null, filename);
+    cb(null, `${file.fieldname}-${Date.now()}.${ext}`);
   },
 });
 
@@ -73,6 +71,14 @@ router.post("/create", (req, res) => {
     }
   });
 });
+router.get("/live/:id", async (req, res) => {
+  const id = req.params.id;
+
+  const post = await Posts.find({room : id})
+  res.send(post)
+
+});
 
 router.get("/getPosts", getPosts);
+
 module.exports = router;

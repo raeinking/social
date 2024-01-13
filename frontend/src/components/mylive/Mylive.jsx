@@ -9,6 +9,26 @@ function Mylive() {
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
   const [isPlaying, setIsPlaying] = useState( true || false);
+  const [videoPath, setVideoPath] = useState('');
+  const [liveId, setLiveId] = useState('');
+
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    const pathParts = currentPath.split('/');
+    const extractedLiveId = pathParts[pathParts.length - 1];
+    setLiveId(extractedLiveId);
+    console.log(extractedLiveId);
+
+
+    fetch(`http://localhost:8060/post/live/${extractedLiveId}`)
+      .then(response => response.json())
+      .then(data => {
+        setVideoPath(data[0].video);
+        console.log(data[0].video);
+      })
+      .catch(error => console.error('Error fetching video path:', error));
+  }, []);
+
   const playPauseVideo = () => {
     const video = document.getElementById('myVideo');
 
@@ -53,7 +73,7 @@ function Mylive() {
     const video = document.getElementById('fast');
     console.log(video);
 
-    video.playbackRate = 2; // Set playback rate to 2
+    video.playbackRate = 2; 
 
   };
 
@@ -68,8 +88,6 @@ function Mylive() {
         console.error('Failed to copy URL: ', err);
       });
   };
-
-
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -110,7 +128,7 @@ function Mylive() {
     <div className='livecontainer'>
       <div className="left">
       <video id="myVideo">
-        <source src={video} type="video/mp4"/>
+      <source src={require('file:///C:/Users/Rayan%20Developer/Desktop/hackerthen/social/backend/routes/files/myFile-1705147668246.mp4')} type="video/mp4" />
       </video>
 
       </div>

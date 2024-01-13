@@ -3,10 +3,9 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Roboto';
+}
 
-  }
-
-  .loading {
+.loading {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -15,13 +14,16 @@
     height: 100vh;
     z-index: 99;
     background-color: rgba(0, 0, 0, 0.283);
-  }
-  .loading img {
+}
+
+.loading img {
     width: 300px;
     image-rendering: auto;
     z-index: 100;
-  }
-  
+}
+
+
+/*   
 .loginpage { 
     width: 100%;
     height: 100vh;
@@ -78,4 +80,83 @@
     font-weight: 800;
     border: 0;
     cursor: pointer;
+} */
+
+.loginpage {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    align-items: center;
+    background: #ffffff;
+    font-family: "Cairo", sans-serif;
+}
+
+.blackcover {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.formlogin {
+    width: 400px;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
+    border-radius: 4px;
+    box-shadow: 0 15px 35px rgb(0, 0, 0);
+}
+
+.formlogin h1 {
+    font-size: 2em;
+    color: #0f0;
+    text-transform: uppercase;
+}
+
+.formlogin label {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.formlogin input {
+    width: 100%;
+    background: #333;
+    border: none;
+    outline: none;
+    padding: 15px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1em;
+    margin-bottom: 15px;
+}
+
+.formlogin p {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #fff;
+}
+
+.signup-link {
+    color: #0f0;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-login {
+    padding: 10px;
+    background: #0f0;
+    color: #000;
+    font-weight: 600;
+    font-size: 1.35em;
+    letter-spacing: 0.05em;
+    cursor: pointer;
 }

@@ -61,7 +61,7 @@ require("dotenv").config();
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-const PORT = process.env.PORT || 8040;
+const PORT = process.env.PORT || 8060;
 const URL = process.env.MONGO_URI;
 
 mongoose
