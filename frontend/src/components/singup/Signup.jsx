@@ -15,7 +15,7 @@ const Signup = () => {
     e.preventDefault();
     setloading(true);
 
-    fetch("http://localhost:8040/auth/register", {
+    fetch("http://localhost:8060/auth/register", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
