@@ -1,23 +1,32 @@
 .blogcontainer {
     margin: 20px 0;
+    display: flex;
     cursor: pointer;
+    align-items: center;
+    justify-content: center;
 }
+
 .header {
     display: flex;
 }
+
 .header p {
-    padding:0px 10px ;
+    padding: 0px 10px;
 }
+
 .header img {
     width: 25px;
 }
+
 .caption p {
     width: 100%;
     padding: 10px;
 }
-.blogs img{
+
+.blogs img {
     max-width: 680px;
 }
+
 .blogcontainer a {
     list-style: none;
     text-decoration: none;
