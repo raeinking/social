@@ -72,13 +72,6 @@ mongoose
   .then(() => {
     console.log("Connected to the database successfully...");
   });
-// mongoose
-//   .connect(URL, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => {
-//     console.log("Connected to the database successfully...");
 
 let gfs;
 mongoose.connection.once("open", () => {
@@ -111,7 +104,7 @@ wss.on("connection", (ws) => {
   console.log("User connected");
 
   // Example: Emit the video filename to the client
-  const videoFilename = "video.mp4";
+  const videoFilename = "your_video_filename.mp4";
   ws.send(JSON.stringify({ event: "video", filename: videoFilename }));
 });
 
@@ -121,6 +114,20 @@ app.use(
     credentials: true,
   })
 );
+
+// Add API route to serve videos
+app.get("/api/video/", (req, res) => {
+  const { filename } = req.params;
+  const videoPath = path.join(__dirname, "/files", "myFile-1705110319806.mp4");
+
+  // Add logic to check if the file exists, and handle errors appropriately
+  // For simplicity, assuming synchronous file reading here
+  const videoFile = fs.readFileSync(videoPath);
+
+  // Set appropriate headers for video files
+  res.setHeader("Content-Type", "video/mp4");
+  res.send(videoFile);
+});
 
 app.use(express.json());
 app.use("/auth", userRouter);
