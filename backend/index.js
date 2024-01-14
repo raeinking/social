@@ -55,6 +55,7 @@ const http = require("http");
 const WebSocket = require("ws");
 const Grid = require("gridfs-stream");
 const multer = require("multer");
+const path = require('path');
 
 require("dotenv").config();
 
@@ -99,6 +100,8 @@ app.get("/video/:filename", (req, res) => {
   const readstream = gfs.createReadStream({ filename });
   readstream.pipe(res);
 });
+app.use('/files', express.static(path.join(__dirname)));
+console.log(__dirname)
 
 wss.on("connection", (ws) => {
   console.log("User connected");

@@ -49,7 +49,7 @@ router.post("/create", (req, res) => {
         postTitle: title,
         thumbnail: thumbnail,
         userId: userId,
-        video: req.file ? req.file.path : null, 
+        video: req.file ? req.file.filename : null, 
         live: true,
         room: room,
       });

@@ -11,6 +11,7 @@ function Mylive() {
   const [isPlaying, setIsPlaying] = useState( true || false);
   const [videoPath, setVideoPath] = useState('');
   const [liveId, setLiveId] = useState('');
+  const [loading, setloading] = useState(true);
 
   useEffect(() => {
     const currentPath = window.location.pathname;
@@ -25,6 +26,7 @@ function Mylive() {
       .then(data => {
         setVideoPath(data[0].video);
         console.log(data[0].video);
+        setloading(false);
       })
       .catch(error => console.error('Error fetching video path:', error));
   }, []);
@@ -103,10 +105,10 @@ function Mylive() {
 
 
     socket.on('All', (data) => {
-      if (Array.isArray(data)) {
-        setMessages(prevMessages => [...prevMessages, ...data]);
-      }
-      console.log('prevMessages', data);
+      console.log(data)
+      // if (Array.isArray(data)) {
+      //   setMessages(prevMessages => [...prevMessages, ...data]);
+      // }
     });
 
     socket.on('control_video', (control) => {
@@ -128,13 +130,14 @@ function Mylive() {
     <div className='livecontainer'>
       <div className="left">
       <video id="myVideo">
-      <source src={require('file:///C:/Users/Rayan%20Developer/Desktop/hackerthen/social/backend/routes/files/myFile-1705147668246.mp4')} type="video/mp4" />
+        {loading ? null :
+      <source src={`http://localhost:8060/files/routes/files/${videoPath}`} type="video/mp4" />
+        
+        }
       </video>
 
       </div>
-      <button className='speed1' id="slaw" onClick={speedslow}>X0.5</button>
-      <button className='speed2' id="midle" onClick={sppednormal}>X1</button>
-      <button className='speed3' id="fast" onClick={speedfast}>X2</button>
+
       <button className='btnplay' onClick={playPauseVideo}>{isPlaying ? 'Pause' : 'Play'}</button>
       <button className='btnplays' onClick={copyurl}>Share This Party</button>
 

@@ -74,11 +74,12 @@
 
 .speed1 {
     position: absolute;
-    width: 80px;
+    text-align: center;
     padding: 20px;
+    width: 80px;
     background-color: rgb(15, 198, 55);
     border: none;
-    cursor: pointer;
+    cursor: auto;
     bottom: 80px;
     left: 30%;
     border-radius: 3px;
